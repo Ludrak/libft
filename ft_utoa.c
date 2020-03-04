@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:02:47 by lrobino           #+#    #+#             */
-/*   Updated: 2020/03/04 18:50:53 by lrobino          ###   ########lyon.fr   */
+/*   Created: 2020/03/02 18:29:03 by lrobino           #+#    #+#             */
+/*   Updated: 2020/03/04 18:52:36 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+int		ft_ucount(unsigned int n)
 {
-	unsigned char	*tmp;
+	int		i;
 
-	tmp = (unsigned char *)str + n;
-	while (n > 0)
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
+}
+
+char	*ft_utoa(unsigned int n)
+{
+	char			*result;
+	int				i;
+	unsigned int	nb;
+
+	nb = n;
+	i = ft_ucount(n);
+	if (!(result = ft_calloc((ft_ucount(n) + 1), sizeof(*result))))
+		return (0);
+	if (n == 0)
 	{
-		n--;
-		tmp--;
-		*tmp = c;
+		result[0] = '0';
+		return (result);
 	}
-	return (str);
+	while (nb)
+	{
+		result[--i] = nb % 10 + '0';
+		nb /= 10;
+	}
+	return (result);
 }

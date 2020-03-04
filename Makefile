@@ -1,18 +1,23 @@
 # **************************************************************************** #
-#                                                           LE - /             #
-#                                                               /              #
-#    Makefile                                         .::    .:/ .      .::    #
-#                                                  +:+:+   +:    +:  +:+:+     #
-#    By: lrobino <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
-#                                                  #+#   #+    #+    #+#       #
-#    Created: 2019/12/02 18:15:54 by lrobino      #+#   ##    ##    #+#        #
-#    Updated: 2019/12/03 02:02:38 by lrobino     ###    #+. /#+    ###.fr      #
-#                                                          /                   #
-#                                                         /                    #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/11/28 00:13:18 by lrobino           #+#    #+#              #
+#    Updated: 2020/03/04 17:12:40 by lrobino          ###   ########lyon.fr    #
+#                                                                              #
 # **************************************************************************** #
 
+#Name if compiled as lib
+NAME			= libft.a
+#Name if compiled as executable
+EXEC			= test-libft.out
 
-NAME		= libft.a
+VERSION			= 1.1
+AUTHOR			= lrobino
+
 
 SRCS		=	ft_memset.c			\
 				ft_memcpy.c			\
@@ -49,9 +54,10 @@ SRCS		=	ft_memset.c			\
 				ft_strtrim.c		\
 				ft_split.c			\
 				ft_ltoa_base.c		\
-				ft_itoa_base.c
-
-BONUS_SRCS	= 	ft_lstnew.c			\
+				ft_itoa_base.c		\
+				ft_strinsert.c		\
+				ft_utoa.c           \
+                ft_lstnew.c			\
 				ft_lstadd_front.c	\
 				ft_lstsize.c		\
 				ft_lstlast.c		\
@@ -61,97 +67,175 @@ BONUS_SRCS	= 	ft_lstnew.c			\
 				ft_lstiter.c		\
 				ft_lstmap.c
 
-OBJDIR			= required_objs
-BONUS_OBJDIR	= bonus_objs
-OBJS			= $(addprefix $(OBJDIR)/,$(SRCS:.c=.o))
-BONUS_OBJS		= $(addprefix $(BONUS_OBJDIR)/,$(BONUS_SRCS:.c=.o))
+
+# COMP & LIB 
+
+
+#define this to use external libs compilation (need to include a Makefile to compile the lib)
+
+#LIB_DIR			= 
+#LIBFILES		= 
+
+ifdef LIBFILES
+	LIBS			= $(addprefix $(LIB_DIR)/,$(addprefix $(LIBFILES),.a))
+endif
+
+BIN_DIR			= bin
+OBJS			= $(addprefix $(BIN_DIR)/,$(SRCS:.c=.o))
 
 INCLUDES		= -I.
 
-RM				= rm -rf
 CC				= gcc -c
 LNK				= gcc
-LIB				= ar rcus 
-CFLAGS			= -Wall -Wextra -Werror
+LIBLNK			= ar rcus
+CFLAGS			= -Wall -Wextra -Werror -g3
 OUT				= --output
 
-all : $(NAME)
+RM				= rm -rf
+
+
+#
+#	COLORS
+#
+C_RESET= \033[0m
+BGREEN = \033[1;32m
+GREEN = \033[0;32m
+YELLOW	= \033[0;33m
+BYELLOW = \033[1;33m
+PURPLE = \033[0;35m
+BPURPLE = \033[1;35m
+BRED	= \033[1;31m
+RED		= \033[0;31m
+BLUE	= \033[0;34m
+BBLUE	= \033[1;34m
+m_MAKE		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(PURPLE)MAKE$(C_RESET)] :
+m_INFO		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(PURPLE)INFO$(C_RESET)] :
+m_LINK		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(PURPLE)LINK$(C_RESET)] :
+m_COMP		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(PURPLE)COMP$(C_RESET)] :
+
+m_WARN		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(BYELLOW)WARN$(C_RESET)] :$(YELLOW)
+m_REMV		= $(C_RESET)[$(BBLUE) $(NAME) $(C_RESET)] [$(BRED)CLEAN$(C_RESET)] :$(BYELLOW)
 
 
 
-
-$(NAME) : pre $(OBJS)
-	@echo "\033[0m[\033[1;32mMAKE\033[0m] ->	\033[1;35mINFO		\033[0;32mSuccessfully compiled project : \033[0;35m$(NAME)\n"
-	@echo "\033[0m[\033[1;32mLINK\033[0m] ->	\033[1;35mINFO		\033[0;32mStarting linker process..."
-	@$(LIB) $(NAME) $(OBJS)
-	@echo "\033[0m[\033[1;32mLINK\033[0m] ->	\033[1;35mSUCCESS		\033[1;32mLink Success !	-> '$(NAME)' created"
+all : v $(NAME)
+	@echo "$(C_RESET)Done."
 
 
 
-
-pre : $(OBJDIR)
-	@echo "\033[1;37m\n> REQUIRED	- ############################################################################"
-	@echo "\n ----		\033[4;37mSTATUS\033[1;0m		\033[4;37mCOMMENT\033[1;0m"
+bonus : all
 
 
 
-
-pre_bonus : $(OBJDIR) $(BONUS_OBJDIR)
-	@echo "\033[1;37m\n> BONUS		- ###########################################################################"
-	@echo "\n -----		\033[4;37mSTATUS\033[1;0m		\033[4;37mCOMMENT\033[1;0m"
-
-
-
-
-$(OBJDIR) :
-	@mkdir -p $(OBJDIR)
-	@echo "\033[0m[\033[1;33mWARN\033[0m] ->	\033[1;33mWARNING		\033[0;33mFailed to locate $(OBJDIR) folder. Creating one..."
+$(NAME) : $(LIB_DIR) $(LIBS) $(BIN_DIR) $(OBJS)
+	@echo "\r$(m_MAKE) Successfully compiled project : $(BGREEN)$(NAME)$(C_RESET)"
+	@echo "$(m_LINK) Starting linker process..."
+	@$(LIBLNK) $(NAME) $(OBJS)
+	@echo "$(m_LINK) Link sucess ! '$(NAME)' created."
 
 
 
-
-$(BONUS_OBJDIR) :
-	@mkdir -p $(BONUS_OBJDIR)
-	@echo "\033[0m[\033[1;33mWARN\033[0m] ->	\033[1;33mWARNING		\033[0;33mFailed to locate $(BONUS_OBJDIR) folder. Creating one..."
-
-
-
-$(OBJDIR)/%.o : %.c libft.h
-	@echo "\033[0m[\033[1;32mMAKE\033[0m] ->	\033[1;32mCOMPILED	\033[1;36m$<"
-	@$(CC) $< $(CFLAGS) -o $@
-
+c : compile
+compile : $(LIB_DIR) $(LIBS) $(BIN_DIR) $(OBJS)
+	@echo "\r$(m_MAKE) Successfully compiled project : $(BGREEN)$(NAME)$(C_RESET)"
+	@echo "$(m_LINK) Starting linker process..."
+	@$(LNK) $(OUT) $(EXEC) $(OBJS) $(LIBS)
+	@echo "$(m_LINK) Link sucess ! '$(NAME)' created."
+	@echo "$(m_INFO) Executing project : $(BGREEN)$(EXEC)\n$(BPURPLE)=V=[$(EXEC)]=V=$(C_RESET)"
+	@./$(EXEC)
+	
 
 
-
-$(BONUS_OBJDIR)/%.o : %.c
-	@echo "\033[0m[\033[1;35mBONUS\033[0m] ->	\033[1;32mCOMPILED	\033[1;36m$<"
-	@$(CC) $< $(CFLAGS) -o $@
+ce : cat
+cat : $(BIN_DIR) $(OBJS)
+	@$(LNK) $(OUT) $(EXEC) $(OBJS) $(LIBS)
+	@./$(EXEC) | cat -e
 
 
 
+$(BIN_DIR) :
+	@mkdir -p $(BIN_DIR)
+	@echo "$(m_WARN) Failed to locate $(BIN_DIR) directory. Creating it...$(C_RESET)";
 
+
+$(LIB_DIR) :
+	@mkdir -p $(LIB_DIR)
+	@echo "$(m_WARN) Failed to locate $(LIB_DIR) directory. Creating it...$(C_RESET)";
+
+
+
+$(BIN_DIR)/%.o : %.c
+	@$(CC) $< $(CFLAGS) $(OUT) $@ $(INCLUDES)
+	@printf "\r$(m_COMP) Compiled : $<"
+
+
+$(LIB_DIR)/%.a : $(LIBFILES)
+	@echo "\n\033[1;36m#################################################################################"
+	@printf "\033[1;36m#  \033[0m[\033[1;36mLIBRARY\033[0m] ->	\033[1;35mCOMPILE		\033[0;32mCompiling : \033[0;35m%-30s\033[1;36m      #\n" $<
+	@echo "\033[1;36m#################################################################################"
+	@make re -C $<
+	@mv $</$<.a $(LIB_DIR)/$<.a
+	@echo "\033[1;36m#################################################################################"
+	@echo "\033[1;36m#################################################################################\n\n"
+
+
+
+cl : clean
 clean :
-	@$(RM) $(OBJDIR)
-	@$(RM) $(BONUS_OBJDIR)
-	@echo "\033[0m[\033[1;31mCLEAN\033[0m] ->	\033[1;33mREMOVED		\033[0;33mRemoved '.o' files."
+	@$(RM) $(BIN_DIR)
+	@echo "$(m_REMV) Removed .o files."
 
 
 
+lc : lclean
+lclean :
+	@$(RM) $(LIB_DIR)
+ifdef LIBFILES
+	@make fclean -C $(LIBFILES)
+endif
+	@echo "$(m_REMV) Removed libfiles"
 
-fclean : clean
+
+
+fc : fclean
+fclean : lc cl
 	@$(RM) $(NAME)
-	@echo "\033[0m[\033[1;31mCLEAN\033[0m] ->	\033[1;33mREMOVED		\033[0;33mRemoved executable '$(NAME)'"
+	@$(RM) $(NAME).dSYM
+	@$(RM) $(EXEC)
+	@$(RM) $(EXEC).dSYM
+	@echo "$(m_REMV) Removed exectuable : '$(NAME)'"
 
 
 
+v : version
+version :
+	@echo "$(BBLUE)#################################################################################"
+	@echo "#                                                                               #"
 
-re : fclean all
+	@echo "#           :::      ::::::::                                                   #"
+	@echo "#         :+:      :+:    :+:                                                   #"
+	@echo "#       +:+ +:+         +:+                                                     #"
+	@echo "#     +#+  +:+       +#+                                                        #"
+	@echo "#   +#+#+#+#+#+   +#+                                                           #"
+	@echo "#         #+#    #+#                                                            #"
+	@echo "#        ###   ######## - Lyon                                                  #"
+	@echo "#                                                                               #"
+	@echo "#$(C_RESET)>-----------------------------------------------------------------------------<$(BBLUE)#"
+	@printf "#$(C_RESET)   Project : %-20.20s                                              $(BBLUE)#\n" $(NAME)
+	@printf "#$(C_RESET)   Version : %-15.15s                       Author : %-10.10s         $(BBLUE)#\n" $(VERSION) $(AUTHOR)
+	@echo "#################################################################################$(C_RESET)\n\n"
 
 
 
+re : v fclean all
 
-bonus : pre_bonus $(BONUS_OBJS) pre $(OBJS)
-	@echo "\033[0m[\033[1;32mMAKE\033[0m] ->	\033[1;35mINFO		\033[0;32mSuccessfully compiled project : \033[0;35m$(NAME)\n"
-	@echo "\033[0m[\033[1;32mLINK\033[0m] ->	\033[1;35mINFO		\033[0;32mStarting linker process..."
-	@$(LIB) $(NAME) $(OBJS) $(BONUS_OBJS)
-	@echo "\033[0m[\033[1;32mLINK\033[0m] ->	\033[1;35mSUCCESS		\033[1;32mLink Success !	-> '$(NAME)' created"
+
+
+recomp : v fclean compile
+
+
+ra : re-all
+re-all : v fclean lclean all
+
+
+.PHONY	: all c compile recomp re ra re-all fclean fc lclean lc clean version v cat ce bonus 

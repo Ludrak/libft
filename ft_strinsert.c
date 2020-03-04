@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:02:47 by lrobino           #+#    #+#             */
-/*   Updated: 2020/03/04 18:50:53 by lrobino          ###   ########lyon.fr   */
+/*   Created: 2020/03/02 18:17:54 by lrobino           #+#    #+#             */
+/*   Updated: 2020/03/04 18:59:02 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+char	*ft_strinsert(char *src, char *in, size_t pos)
 {
-	unsigned char	*tmp;
+	char	*out;
+	size_t	src_s;
+	size_t	in_s;
+	int		i;
 
-	tmp = (unsigned char *)str + n;
-	while (n > 0)
-	{
-		n--;
-		tmp--;
-		*tmp = c;
-	}
-	return (str);
+	i = 0;
+	in_s = ft_strlen(in);
+	src_s = ft_strlen(src);
+	if (pos > src_s ||
+			!(out = ft_calloc(src_s + ft_strlen(in) + 1, sizeof(char))))
+		return (0);
+	while (pos--)
+		out[i++] = *src++;
+	while (in_s--)
+		out[i++] = *in++;
+	while (*src)
+		out[i++] = *src++;
+	return (out);
 }

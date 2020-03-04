@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   ft_itoa_base.c                                   .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lrobino <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/02 17:50:20 by lrobino      #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 01:58:46 by lrobino     ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ltoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/02 17:50:20 by lrobino           #+#    #+#             */
+/*   Updated: 2020/03/04 18:57:27 by lrobino          ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -29,7 +28,7 @@ char			*ft_ltoa_base(long n, char *base)
 	int				i;
 	unsigned long	nb;
 
-	nb = (unsigned long) n;
+	nb = (unsigned long)n;
 	i = ft_count_base(n, base);
 	if (!(result = ft_calloc((ft_count_base(n, base) + 1), sizeof(*result))))
 		return (0);

@@ -1,14 +1,13 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: lrobino <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/23 17:57:39 by lrobino      #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 02:00:37 by lrobino     ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
+/*   Updated: 2020/03/04 19:03:15 by lrobino          ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
@@ -17,15 +16,17 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define FIRST_FREE 1
+# define LAST_FREE	2
+# define BOTH_FREE	3
+# define NO_FREE	4
+
 typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
 
-/*
-**		## PART 1 ##
-*/
 void				*ft_memset(void *str, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -50,7 +51,6 @@ char				*ft_strnstr(const char *little,
 					const char *big, size_t len);
 int					ft_atoi(const char *nptr);
 char				*ft_strdup(const char *s);
-
 void				*ft_calloc(size_t count, size_t size);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
@@ -59,7 +59,9 @@ void				ft_putnbr_fd(int c, int fd);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s1, const char *set);
+char				*ft_strinsert(char *src, char *in, size_t pos);
 char				*ft_itoa(int n);
+char				*ft_utoa(unsigned int n);
 char				*ft_itoa_base(int n, char *base);
 char				*ft_ltoa_base(long n, char *base);
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
@@ -75,4 +77,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst,
 					void *(*f)(void *), void (*del)(void *));
+
 #endif
