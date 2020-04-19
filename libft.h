@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
-/*   Updated: 2020/03/04 19:03:15 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/04/19 13:06:29 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ char				*ft_itoa_base(int n, char *base);
 char				*ft_ltoa_base(long n, char *base);
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char				**ft_split(const char *s, char c);
+int					ft_constrain(int val, int min, int max);
 
+/*
+**	CHAINED LIST UTILS
+*/
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
 int					ft_lstsize(t_list *lst);

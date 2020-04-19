@@ -6,7 +6,7 @@
 #    By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 00:13:18 by lrobino           #+#    #+#              #
-#    Updated: 2020/03/11 15:18:10 by lrobino          ###   ########lyon.fr    #
+#    Updated: 2020/04/19 13:06:47 by lrobino          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ SRCS		=	ft_memset.c			\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
 				ft_lstiter.c		\
-				ft_lstmap.c
+				ft_lstmap.c			\
+				ft_constrain.c
 
 ##	BINARIES DIRECTORY OF YOUR PROJECT
 BIN_DIR			= bin
@@ -108,7 +109,7 @@ endif
 RM				= rm -rf
 CC				= gcc -c
 GCC				= gcc
-AR				= ar rcus
+AR				= ar rcs
 CFLAGS			= -Wall -Wextra -Werror
 OUT				= --output
 
