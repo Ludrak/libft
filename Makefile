@@ -57,7 +57,9 @@ SRCS=	ft_memset.c			\
 		ft_lstclear.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c			\
-		ft_constrain.c
+		ft_constrain.c		\
+		ft_strnum.c			\
+		ft_strcmp.c
 
 ## HEADERS
 HEADERS = inc/
