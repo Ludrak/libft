@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strnum.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 21:08:49 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/01 22:25:07 by lrobino          ###   ########lyon.fr   */
+/*   Created: 2020/07/01 22:26:14 by lrobino           #+#    #+#             */
+/*   Updated: 2020/07/01 22:28:04 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstclear(t_list **lst, void (*del)(void *))
+int     ft_strnum(char *str)
 {
-	t_list	*current;
-	t_list	*tmp;
-
-	if (lst)
-	{
-		current = *lst;
-		while (current)
-		{
-			tmp = current->next;
-			del(current->content);
-			del(current);
-			current = tmp;
-		}
-	}
+    while (*str)
+    {
+        if (!ft_isdigit(*str++))
+            return (0);
+    }
+    return (1);
 }
