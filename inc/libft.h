@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/01 22:35:25 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/02 20:25:36 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_strinsert(char *src, char *in, size_t pos);
 int     			ft_strnum(char *str);
+int					ft_sign(int i);
 char				*ft_itoa(int n);
 char				*ft_utoa(unsigned int n);
 char				*ft_itoa_base(int n, char *base);
