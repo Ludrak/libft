@@ -40,6 +40,8 @@ SRCS=	ft_memset.c			\
 		ft_putnbr_fd.c		\
 		ft_substr.c			\
 		ft_strjoin.c		\
+		ft_strstartswith.c	\
+		ft_strendwith.c		\
 		ft_itoa.c			\
 		ft_strmapi.c		\
 		ft_strtrim.c		\
