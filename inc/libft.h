@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/03 14:43:11 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/05 13:02:58 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+/*
+**	Need to add more sorting algorithms
+*/
+# define BUBBLE_SORT	0
 
 # define FIRST_FREE 1
 # define LAST_FREE	2
@@ -54,6 +59,7 @@ char				*ft_strnstr(const char *little,
 					const char *big, size_t len);
 int					ft_atoi(const char *nptr);
 char				*ft_strdup(const char *s);
+char				*ft_strldup(const char *s, size_t len);
 void				*ft_calloc(size_t count, size_t size);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
@@ -71,6 +77,7 @@ char				*ft_itoa_base(int n, char *base);
 char				*ft_ltoa_base(long n, char *base);
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char				**ft_split(const char *s, char c);
+char				**ft_splitcharset(const char *str, const char *charset);
 int					ft_constrain(int val, int min, int max);
 
 /*
@@ -86,5 +93,9 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst,
 					void *(*f)(void *), void (*del)(void *));
+void    			ft_lstsort(int sort_type, t_list **lst,
+					int (*cmp)(void*, void*));
+void    			ft_bubblesort(t_list **alst, int (*cmp)(void*, void*));
+
 
 #endif

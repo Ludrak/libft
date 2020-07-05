@@ -6,15 +6,15 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 20:23:58 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/02 20:25:00 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/05 14:17:23 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_sign(int i)
+int	ft_sign(int i)
 {
-    if (i == 0)
-        return (i);
-    return (i < 0 ? -1 : 1);
+	if (i == 0)
+		return (i);
+	return (i < 0 ? -1 : 1);
 }

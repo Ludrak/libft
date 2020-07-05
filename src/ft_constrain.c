@@ -9,5 +9,5 @@ int		ft_constrain(int val, int min, int max)
 		val = max;
 	if (val < min)
 		val = min;
-	return val;
+	return (val);
 }

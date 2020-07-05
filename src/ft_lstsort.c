@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnum.c                                        :+:      :+:    :+:   */
+/*   ft_lstsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 22:26:14 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 14:18:38 by lrobino          ###   ########lyon.fr   */
+/*   Created: 2020/07/05 12:53:14 by lrobino           #+#    #+#             */
+/*   Updated: 2020/07/05 14:15:30 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strnum(char *str)
+void	ft_lstsort(int sort_type, t_list **lst, int (*cmp)(void*, void*))
 {
-	while (*str)
-	{
-		if (!ft_isdigit(*str++))
-			return (0);
-	}
-	return (1);
+	if (sort_type == BUBBLE_SORT)
+		ft_bubblesort(lst, cmp);
 }

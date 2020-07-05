@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnum.c                                        :+:      :+:    :+:   */
+/*   ft_strldup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 22:26:14 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 14:18:38 by lrobino          ###   ########lyon.fr   */
+/*   Created: 2020/07/05 12:36:16 by lrobino           #+#    #+#             */
+/*   Updated: 2020/07/05 14:15:56 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strnum(char *str)
+char	*ft_strldup(const char *str, size_t len)
 {
-	while (*str)
-	{
-		if (!ft_isdigit(*str++))
-			return (0);
-	}
-	return (1);
+	char	*ret;
+	int		len_s;
+	int		i;
+
+	i = -1;
+	len_s = ft_strlen(str);
+	if (!(ret = malloc((((len_s > len) ? len : len_s) + 1) * sizeof(*ret))))
+		return (0);
+	while (str[++i] && len--)
+		ret[i] = str[i];
+	ret[i] = 0;
+	return (ret);
 }
