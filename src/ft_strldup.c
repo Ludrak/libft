@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 12:36:16 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 14:15:56 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/05 14:25:28 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strldup(const char *str, size_t len)
 {
 	char	*ret;
-	int		len_s;
+	size_t	len_s;
 	int		i;
 
 	i = -1;

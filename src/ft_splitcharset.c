@@ -6,13 +6,11 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:37:13 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 12:52:51 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/05 14:25:51 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
 static size_t	ft_getwords(char *s, char *c)
 {

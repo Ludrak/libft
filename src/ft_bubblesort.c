@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 12:54:28 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 14:15:02 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/05 14:26:13 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ void		ft_bubblesort(t_list **alst, int (*cmp)(void*, void*))
 {
 	t_list	*first;
 	int		sorted;
-	int		pass;
 
-	pass = 0;
 	sorted = 0;
 	if (alst)
 	{

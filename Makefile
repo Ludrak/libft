@@ -62,7 +62,11 @@ SRCS=	ft_memset.c			\
 		ft_constrain.c		\
 		ft_strnum.c			\
 		ft_strcmp.c			\
-		ft_sign.c
+		ft_sign.c			\
+		ft_strldup.c		\
+		ft_splitcharset.c	\
+		ft_lstsort.c		\
+		ft_bubblesort.c
 
 ## HEADERS
 HEADERS = inc/
