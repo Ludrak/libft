@@ -6,13 +6,13 @@
 /*   By: lrobino <lrobino@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 20:23:58 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/05 14:17:23 by lrobino          ###   ########lyon.fr   */
+/*   Updated: 2020/07/07 18:23:51 by lrobino          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sign(int i)
+int	ft_sign(float i)
 {
 	if (i == 0)
 		return (i);
