@@ -66,7 +66,8 @@ SRCS=	ft_memset.c			\
 		ft_strldup.c		\
 		ft_splitcharset.c	\
 		ft_lstsort.c		\
-		ft_bubblesort.c
+		ft_bubblesort.c		\
+		ft_freestab.c
 
 ## HEADERS
 HEADERS = inc/
