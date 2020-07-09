@@ -6,17 +6,21 @@
 /*   By: lrobino <lrobino@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 14:50:29 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/09 14:55:44 by lrobino          ###   ########.fr       */
+/*   Updated: 2020/07/09 15:42:40 by lrobino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_freestab(char ***tab)
+void	ft_freestab(char **tab)
 {
-    int i;
+	int	i;
 
-    while (*tab[i] != NULL)
-        free (*tab[i++]);
-    free (*tab);
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }
