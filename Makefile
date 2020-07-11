@@ -71,6 +71,7 @@ SRCS=	ft_memset.c			\
 
 ## HEADERS
 HEADERS = inc/
+HEADER_FILES = libft.h
 
 ## BINS
 BIN_DIR = bin
@@ -162,7 +163,7 @@ $(BIN_DIR) :
 
 ## Require a C source
 ## -> Compiles a c source to a bin o file
-$(BIN_DIR)/%.o : $(SRC_DIR)/%.c
+$(BIN_DIR)/%.o : $(SRC_DIR)/%.c $(HEADER_FILES:%=$(HEADERS)%)
 	@printf "$(WHITE)> Compiling : $(BGREEN)$< $(WHITE)"
 	@$(CC) $(OUT) $@ $< $(CFLAGS) $(LIB_DIRS:%=-I$(LIB)/%) $(HEADERS:%=-I%)
 	@printf "\r$(BWHITE)[$(BGREEN)✔️$(BWHITE)] Compiled : $(BGREEN)$<$(WHITE)\n"
