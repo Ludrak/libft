@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:37:13 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/14 13:45:43 by lrobino          ###   ########.fr       */
+/*   Updated: 2020/07/14 16:54:27 by lrobino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char			**ft_splitcharset(const char *str, const char *charset)
 	first = ret;
 	anchor = (char *)str;
 	while (*str)
-		while (ft_strchr(charset, (int)*str++) && *str)
+		while (*str && ft_strchr(charset, (int)*str++))
 		{
 			if (str - anchor - 1 > 0 && words > 0)
 			{
@@ -57,7 +57,7 @@ char			**ft_splitcharset(const char *str, const char *charset)
 			}
 			anchor = (char *)(str);
 		}
-	if (words > 0 && !(*ret = ft_strldup(anchor, (str - anchor - 1))))
+	if (words > 0 && !(*ret = ft_strldup(anchor, (str - anchor))))
 		return (NULL);
 	return (first);
 }
