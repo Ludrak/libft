@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:37:13 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/10 18:11:11 by lrobino          ###   ########.fr       */
+/*   Updated: 2020/07/14 13:45:43 by lrobino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char			**ft_splitcharset(const char *str, const char *charset)
 			}
 			anchor = (char *)(str);
 		}
-	if (words > 0 && !(*ret = ft_strldup(anchor, (str - anchor))))
+	if (words > 0 && !(*ret = ft_strldup(anchor, (str - anchor - 1))))
 		return (NULL);
 	return (first);
 }
