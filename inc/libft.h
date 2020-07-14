@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/09 15:42:31 by lrobino          ###   ########.fr       */
+/*   Updated: 2020/07/14 13:48:33 by lrobino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
-void    			ft_freestab(char **tab);
+void				ft_freestab(char **tab);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -70,7 +70,7 @@ char				*ft_substr(const char *s, unsigned int start, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_strinsert(char *src, char *in, size_t pos);
-int     			ft_strnum(char *str);
+int					ft_strnum(char *str);
 int					ft_sign(float i);
 char				*ft_itoa(int n);
 char				*ft_utoa(unsigned int n);
@@ -94,9 +94,8 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst,
 					void *(*f)(void *), void (*del)(void *));
-void    			ft_lstsort(int sort_type, t_list **lst,
+void				ft_lstsort(int sort_type, t_list **lst,
 					int (*cmp)(void*, void*));
-void    			ft_bubblesort(t_list **alst, int (*cmp)(void*, void*));
-
+void				ft_bubblesort(t_list **alst, int (*cmp)(void*, void*));
 
 #endif
