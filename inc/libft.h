@@ -6,7 +6,7 @@
 /*   By: lrobino <lrobino@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 17:57:39 by lrobino           #+#    #+#             */
-/*   Updated: 2020/07/14 13:48:33 by lrobino          ###   ########.fr       */
+/*   Updated: 2020/07/15 22:22:35 by lrobino          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *little,
 					const char *big, size_t len);
 int					ft_atoi(const char *nptr);
+int					ft_atoi_base(char *str, char *base);
 char				*ft_strdup(const char *s);
 char				*ft_strldup(const char *s, size_t len);
 void				*ft_calloc(size_t count, size_t size);
