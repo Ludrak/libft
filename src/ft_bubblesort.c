@@ -27,6 +27,7 @@ void		ft_bubblesort(t_list **alst, int (*cmp)(void*, void*))
 	int		sorted;
 
 	sorted = 0;
+	first = NULL;
 	if (alst)
 	{
 		if (!(first = *alst))
